@@ -6,7 +6,9 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -56,8 +58,14 @@ public final class CardDetailsWindow {
         saveButton.setOnAction(event -> save(stage));
         cancelButton.setOnAction(event -> stage.close());
         HBox actions = new HBox(8, saveButton, cancelButton);
-        VBox content = new VBox(12, fields, feedback, actions);
+        ScrollPane fieldScrollPane = new ScrollPane(fields);
+        fieldScrollPane.setFitToWidth(true);
+        VBox footer = new VBox(8, feedback, actions);
+        BorderPane content = new BorderPane();
         content.setPadding(new Insets(16));
+        content.setCenter(fieldScrollPane);
+        content.setBottom(footer);
+        BorderPane.setMargin(footer, new Insets(12, 0, 0, 0));
         stage.setScene(new Scene(content, 480, 460));
         stage.show();
     }
