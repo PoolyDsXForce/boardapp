@@ -20,7 +20,9 @@ Estimates use person-hours. Week columns are planned remaining effort checkpoint
 | All | Configure dev/release branch protection, verify full acceptance, and prepare submission ZIP/screenshots | 2.0 | 2.0 | 1.5 | 0 | 0 |
 | **Total remaining** |  | **19.0** | **3.5** | **2.0** | **0** | **0** |
 
-The JavaFX UI, model, tests, coverage gate, and project Checkstyle rules have been implemented. The remaining estimates are for repository CI publication, branch controls, final visual acceptance checks, screenshots, and archive preparation.
+The JavaFX UI, model, tests, coverage gate, and project Checkstyle rules have been implemented. GitHub CI passed for the feature PR, the push to `dev`, and the release PR. `dev` is the default branch, `release` is protected, both PRs were merged, and submission screenshots and a local repository archive have been prepared. The instructor's Checkstyle rules were not available; this repository uses the project-created ruleset.
+
+The assignment's provided spreadsheet layout is populated in [sprint-backlog.xlsx](./sprint-backlog.xlsx). Week-by-week remaining-work cells are intentionally blank because actual sprint burndown data was not supplied.
 
 ## Definition of done
 

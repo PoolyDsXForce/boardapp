@@ -12,9 +12,8 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /** Displays the collection and actions for creating, editing, and deleting cards. */
@@ -30,6 +29,7 @@ public final class CollectionWindow {
         this.collection = collection;
         cards = FXCollections.observableArrayList(collection.getCards());
         cardList = new ListView<>(cards);
+        cardList.setMinHeight(0);
         detailsButton = new Button("View / Edit");
         deleteButton = new Button("Delete");
         configureCardList();
@@ -55,9 +55,13 @@ public final class CollectionWindow {
         deleteButton.setOnAction(event -> deleteSelectedCard(stage));
 
         HBox actions = new HBox(8, addButton, detailsButton, deleteButton);
-        VBox content = new VBox(12, heading, cardList, actions);
+        BorderPane content = new BorderPane();
         content.setPadding(new Insets(16));
-        VBox.setVgrow(cardList, Priority.ALWAYS);
+        content.setTop(heading);
+        content.setCenter(cardList);
+        content.setBottom(actions);
+        BorderPane.setMargin(heading, new Insets(0, 0, 12, 0));
+        BorderPane.setMargin(cardList, new Insets(0, 0, 12, 0));
         stage.setScene(new Scene(content, 640, 440));
         stage.show();
     }
