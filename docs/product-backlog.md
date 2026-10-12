@@ -26,3 +26,5 @@ The scope is based on Priority 1 stories in the supplied Lab 2 CardVault product
 ## Approval
 
 The project owner approved this scope before implementation.
+
+The source Lab 2 priority backlog workbook is included as [lab2-product-backlog.xlsx](./lab2-product-backlog.xlsx).
